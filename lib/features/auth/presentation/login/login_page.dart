@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../register/register_page.dart';
+import '../forgot_password/forgot_password_page.dart';
 import '../../../../core/theme/app_colors.dart';
 
 class LoginPage extends StatefulWidget {
@@ -109,8 +110,13 @@ class _LoginPageState extends State<LoginPage> {
                   const Text('Mantener sesión'),
                   const Spacer(),
                   TextButton(
-                    onPressed: () {
-                      // Navegar a recuperar contraseña
+                      onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const ForgotPasswordPage(),
+                        ),
+                      );
                     },
                     child: const Text(
                       '¿Olvidaste tu contraseña?',
