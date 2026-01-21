@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/widgets/primary_button.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -94,19 +95,9 @@ class _RegisterPageState extends State<RegisterPage> {
 
             SizedBox(
               width: double.infinity,
-              child: ElevatedButton(
+              child: PrimaryButton(
+                text: 'Registrarme',
                 onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.pink,
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(32),
-                  ),
-                ),
-                child: const Text(
-                  'Registrarme',
-                  style: TextStyle(fontSize: 16, color: Colors.white),
-                ),
               ),
             ),
 

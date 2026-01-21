@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/widgets/primary_button.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
   const ForgotPasswordPage({super.key});
@@ -66,17 +67,9 @@ class ForgotPasswordPage extends StatelessWidget {
 
                   SizedBox(
                     width: double.infinity,
-                    child: ElevatedButton(
+                    child: PrimaryButton(
+                      text: 'Enviar enlace',
                       onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.primary,
-                        padding: const EdgeInsets.symmetric(vertical: 16),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(32),
-                        ),
-                      ),
-                      child: const Text('Enviar enlace',
-                      style: TextStyle(fontSize: 16, color: Colors.white),),
                     ),
                   ),
 
