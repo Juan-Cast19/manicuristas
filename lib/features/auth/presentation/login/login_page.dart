@@ -3,6 +3,8 @@ import '../register/register_page.dart';
 import '../forgot_password/forgot_password_page.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/widgets/primary_button.dart';
+import '../../../navigation/presentation/main_navigation_page.dart';
+
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -135,7 +137,14 @@ class _LoginPageState extends State<LoginPage> {
                 height: 50,
                 child: PrimaryButton(
                   text: 'Iniciar sesión',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const MainNavigationPage(),
+                      ),
+                    );
+                  },
                 ),
               ),
 
