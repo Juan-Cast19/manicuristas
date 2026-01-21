@@ -32,7 +32,9 @@ class _RegisterPageState extends State<RegisterPage> {
           children: [
             const Text(
               'Crea tu cuenta',
-              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 28, 
+                fontWeight: FontWeight.w700), //Blod
             ),
             const SizedBox(height: 8),
             const Text(
@@ -103,7 +105,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 child: const Text(
                   'Registrarme',
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ),
             ),

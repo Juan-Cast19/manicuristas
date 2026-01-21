@@ -53,7 +53,7 @@ class ForgotPasswordPage extends StatelessWidget {
                     'Ingresa tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 22,
+                      fontSize: 18,
                       color: Colors.grey),
                   ),
 
@@ -75,7 +75,8 @@ class ForgotPasswordPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(32),
                         ),
                       ),
-                      child: const Text('Enviar enlace'),
+                      child: const Text('Enviar enlace',
+                      style: TextStyle(fontSize: 16, color: Colors.white),),
                     ),
                   ),
 
