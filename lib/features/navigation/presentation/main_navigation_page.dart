@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../home/presentation/home_page.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_text_styles.dart';
+import '../../more/presentation/more_page.dart';
 
 class MainNavigationPage extends StatefulWidget {
   const MainNavigationPage({super.key});
@@ -17,7 +18,7 @@ class _MainNavigationPageState extends State<MainNavigationPage> {
     HomePage(),
     _PlaceholderPage(title: 'Agenda'),
     _PlaceholderPage(title: 'Clientes'),
-    _PlaceholderPage(title: 'Más'),
+    MorePage(),
   ];
 
   @override
@@ -28,6 +29,8 @@ class _MainNavigationPageState extends State<MainNavigationPage> {
         children: _pages,
       ),
       bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: AppColors.background2,
+          elevation: 8,
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {

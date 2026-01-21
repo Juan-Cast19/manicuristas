@@ -7,4 +7,5 @@ class AppColors {
   static const Color textPrimary = Color(0xFF1C1C1E);
   static const Color textSecondary = Color(0xFF8E8E8E);
   static const Color error = Color(0xFFE53935);
+  static const Color card = Color(0xFFFFFFFF);
 }

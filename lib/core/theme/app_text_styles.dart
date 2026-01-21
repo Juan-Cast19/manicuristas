@@ -15,11 +15,31 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w400,
     color: AppColors.textPrimary,
   );
-
+  
+  static const TextStyle bodyBold = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 15,
+    fontWeight: FontWeight.w600,
+    color: AppColors.textPrimary,
+  );
   static const bodySmall = TextStyle(
     fontFamily: 'Montserrat',
     fontSize: 12,
     fontWeight: FontWeight.w400,
     color: AppColors.textSecondary,
   );
+  static const TextStyle caption = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 13,
+    fontWeight: FontWeight.w400,
+    color: AppColors.textSecondary,
+  );
+  static const TextStyle section = TextStyle(
+  fontFamily: 'Montserrat',
+  fontSize: 13,
+  fontWeight: FontWeight.w600,
+  letterSpacing: 1.1,
+  color: AppColors.textSecondary,
+);
 }
+
