@@ -1,7 +1,9 @@
-import 'package:flutter/material.dart';
-import '../../../core/theme/app_colors.dart';
-import '../../../core/theme/app_text_styles.dart';
 
+//Import Flutter
+import 'package:flutter/material.dart';
+//Import Core
+import 'package:manicuristas/core/theme/app_colors.dart';
+import 'package:manicuristas/core/theme/app_text_styles.dart';
 class MoreOptionTile extends StatelessWidget {
   final IconData icon;
   final String title;
@@ -32,6 +34,13 @@ class MoreOptionTile extends StatelessWidget {
           decoration: BoxDecoration(
             color: AppColors.card,
             borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.08),
+                    blurRadius: 12,
+                    offset: const Offset(0, 6),
+                  ),
+                ],
           ),
           child: Row(
             children: [

@@ -1,7 +1,13 @@
+
+
+//Import Flutter
 import 'package:flutter/material.dart';
-import '../../../core/theme/app_colors.dart';
-import '../../../core/theme/app_text_styles.dart';
-import '../../../core/widgets/more_option_tile.dart';
+//Import Navegacion
+
+//Import Core
+import 'package:manicuristas/core/theme/app_colors.dart';
+import 'package:manicuristas/core/theme/app_text_styles.dart';
+import 'package:manicuristas/core/widgets/more_option_tile.dart';
 
 class MorePage extends StatelessWidget {
   const MorePage({super.key});

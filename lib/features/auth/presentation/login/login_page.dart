@@ -1,9 +1,12 @@
+//Import Flutter
 import 'package:flutter/material.dart';
-import '../register/register_page.dart';
-import '../forgot_password/forgot_password_page.dart';
-import '../../../../core/theme/app_colors.dart';
-import '../../../../core/widgets/primary_button.dart';
-import '../../../navigation/presentation/main_navigation_page.dart';
+//Import Navegacion
+import 'package:manicuristas/features/auth/presentation/register/register_page.dart';
+import 'package:manicuristas/features/auth/presentation/forgot_password/forgot_password_page.dart';
+import 'package:manicuristas/features/navigation/presentation/main_navigation_page.dart';
+//Import Core
+import 'package:manicuristas/core/theme/app_colors.dart';
+import 'package:manicuristas/core/widgets/primary_button.dart';
 
 
 class LoginPage extends StatefulWidget {

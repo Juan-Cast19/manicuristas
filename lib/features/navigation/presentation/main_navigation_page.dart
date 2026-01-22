@@ -1,8 +1,12 @@
+
+//Import Flutter
 import 'package:flutter/material.dart';
-import '../../home/presentation/home_page.dart';
-import '../../../core/theme/app_colors.dart';
-import '../../../core/theme/app_text_styles.dart';
-import '../../more/presentation/more_page.dart';
+//Import Navegacion
+import 'package:manicuristas/features/home/presentation/home_page.dart';
+import 'package:manicuristas/features/more/presentation/more_page.dart';
+//Import Core
+import 'package:manicuristas/core/theme/app_colors.dart';
+import 'package:manicuristas/core/theme/app_text_styles.dart';
 
 class MainNavigationPage extends StatefulWidget {
   const MainNavigationPage({super.key});
