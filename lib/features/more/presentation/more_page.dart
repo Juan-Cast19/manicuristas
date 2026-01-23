@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:manicuristas/core/theme/app_colors.dart';
 import 'package:manicuristas/core/theme/app_text_styles.dart';
 import 'package:manicuristas/core/widgets/more_option_tile.dart';
+import 'package:manicuristas/core/routers/app_routes.dart';
 
 class MorePage extends StatelessWidget {
   const MorePage({super.key});
@@ -65,7 +66,9 @@ class MorePage extends StatelessWidget {
                 icon: Icons.settings,
                 title: 'Ajustes',
                 subtitle: 'Configuración general',
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, AppRoutes.settings);
+                },
               ),
 
               const SizedBox(height: 24),
@@ -75,7 +78,10 @@ class MorePage extends StatelessWidget {
                 icon: Icons.group,
                 title: 'Personal',
                 subtitle: 'Gestiona tu equipo de trabajo',
-                disabled: true,
+                onTap: () {
+                  // luego validamos el plan
+                  Navigator.pushNamed(context, AppRoutes.personal);
+                },
                 trailing: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [

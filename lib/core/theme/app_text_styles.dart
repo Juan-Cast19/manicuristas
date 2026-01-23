@@ -18,7 +18,7 @@ abstract class AppTextStyles {
   
   static const TextStyle bodyBold = TextStyle(
     fontFamily: 'Montserrat',
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: FontWeight.w600,
     color: AppColors.textPrimary,
   );
@@ -40,6 +40,7 @@ abstract class AppTextStyles {
   fontWeight: FontWeight.w600,
   letterSpacing: 1.1,
   color: AppColors.textSecondary,
-);
+  );
+
 }
 

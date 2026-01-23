@@ -1,6 +1,7 @@
 
 //Import Flutter
 import 'package:flutter/material.dart';
+import 'package:manicuristas/features/agenda/presentation/agenda_page.dart';
 //Import Navegacion
 import 'package:manicuristas/features/home/presentation/home_page.dart';
 import 'package:manicuristas/features/more/presentation/more_page.dart';
@@ -20,7 +21,7 @@ class _MainNavigationPageState extends State<MainNavigationPage> {
 
   final List<Widget> _pages = const [
     HomePage(),
-    _PlaceholderPage(title: 'Agenda'),
+    AgendaPage(),
     _PlaceholderPage(title: 'Clientes'),
     MorePage(),
   ];
