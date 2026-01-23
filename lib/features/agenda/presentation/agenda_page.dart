@@ -15,6 +15,7 @@ class AgendaPage extends StatelessWidget {
       backgroundColor: AppColors.background2,
       floatingActionButton: FloatingActionButton(
         backgroundColor: AppColors.primary,
+        foregroundColor: Colors.white,
         onPressed: () {},
         child: const Icon(Icons.add),
       ),
