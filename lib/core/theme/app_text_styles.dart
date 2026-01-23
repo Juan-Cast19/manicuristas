@@ -41,6 +41,21 @@ abstract class AppTextStyles {
   letterSpacing: 1.1,
   color: AppColors.textSecondary,
   );
+  static const TextStyle sectionTitle = TextStyle(
+  fontFamily: 'Montserrat',
+  fontSize: 16,
+  fontWeight: FontWeight.w600,
+  color: AppColors.textPrimary,
+  letterSpacing: 0.2,
+  );
+  static const TextStyle title = TextStyle(
+  fontFamily: 'Montserrat',
+  fontSize: 22,
+  fontWeight: FontWeight.w600,
+  color: AppColors.textPrimary,
+  height: 1.2,
+  );
+
 
 }
 

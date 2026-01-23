@@ -1,10 +1,14 @@
+//Import Flutter
 import 'package:flutter/material.dart';
+//Import Core
 import 'package:manicuristas/core/theme/app_colors.dart';
 import 'package:manicuristas/core/theme/app_text_styles.dart';
+//Import Agenda
 import 'widgets/day_selector.dart';
 import 'widgets/appointment_card.dart';
 import 'widgets/available_slot.dart';
 import 'widgets/time_label.dart';
+import 'new_appointment_page.dart';
 
 class AgendaPage extends StatelessWidget {
   const AgendaPage({super.key});
@@ -16,9 +20,17 @@ class AgendaPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: AppColors.primary,
         foregroundColor: Colors.white,
-        onPressed: () {},
         child: const Icon(Icons.add),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => const NewReservationPage(),
+            ),
+          );
+        },
       ),
+
       body: SafeArea(
         child: Column(
           children: [
