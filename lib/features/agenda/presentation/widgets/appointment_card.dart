@@ -36,14 +36,18 @@ class AppointmentCard extends StatelessWidget {
         children: [
           Text(
             clientName,
-            style: AppTextStyles.bodyBold,
+            style: AppTextStyles.bodyBold.copyWith(
+              color: AppColors.textPrimary,
+            ),
           ),
           const SizedBox(height: 4),
           Text(
             service,
-            style: AppTextStyles.bodyMedium.copyWith(color: color),
+            style: AppTextStyles.bodyBold.copyWith(
+            color: color,
+            ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 10),
           Row(
             children: [
               Icon(
@@ -54,7 +58,9 @@ class AppointmentCard extends StatelessWidget {
               const SizedBox(width: 6),
               Text(
                 timeRange,
-                style: AppTextStyles.caption,
+                style: AppTextStyles.caption.copyWith(
+                  color: AppColors.textSecondary,
+                ),
               ),
             ],
           ),

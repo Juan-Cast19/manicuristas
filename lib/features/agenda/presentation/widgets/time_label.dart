@@ -13,7 +13,7 @@ class TimeLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
+      padding: const EdgeInsets.only(top: 12),
       child: Text(
         time,
         style: AppTextStyles.caption.copyWith(
