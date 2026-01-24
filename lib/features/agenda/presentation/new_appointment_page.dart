@@ -18,25 +18,15 @@ class _NewReservationPageState extends State<NewReservationPage> {
   DateTime selectedDate = DateTime.now();
   String? selectedHour;
 
-  final List<String> services = [
-    'Gel Soft',
-    'Acrílicas',
-    'Pedicure',
-  ];
+  final List<String> services = ['Gel Soft', 'Acrílicas', 'Pedicure'];
 
-  final List<String> hours = [
-    '09:00',
-    '10:30',
-    '12:00',
-  ];
+  final List<String> hours = ['09:00', '10:30', '12:00'];
 
   // ─────────────────────────────────────────────────────────────
   // HELPERS
   // ─────────────────────────────────────────────────────────────
   bool get canConfirm =>
-      selectedClient != null &&
-      selectedService != null &&
-      selectedHour != null;
+      selectedClient != null && selectedService != null && selectedHour != null;
 
   // ─────────────────────────────────────────────────────────────
   // UI
@@ -77,10 +67,7 @@ class _NewReservationPageState extends State<NewReservationPage> {
         icon: const Icon(Icons.close, color: Colors.black),
         onPressed: () => Navigator.pop(context),
       ),
-      title: Text(
-        'Nueva Reserva',
-        style: AppTextStyles.title,
-      ),
+      title: Text('Nueva Reserva', style: AppTextStyles.title),
       actions: [
         TextButton(
           onPressed: () {},
@@ -88,7 +75,7 @@ class _NewReservationPageState extends State<NewReservationPage> {
             'Ayuda',
             style: AppTextStyles.bodyBold.copyWith(color: AppColors.primary),
           ),
-        )
+        ),
       ],
     );
   }
@@ -106,7 +93,7 @@ class _NewReservationPageState extends State<NewReservationPage> {
         if (selectedClient != null) ...[
           const SizedBox(height: 12),
           _selectedClientCard(),
-        ]
+        ],
       ],
     );
   }
@@ -135,11 +122,8 @@ class _NewReservationPageState extends State<NewReservationPage> {
         CircleAvatar(
           radius: 24,
           backgroundColor: AppColors.primary.withValues(alpha: 0.1),
-          child: Icon(
-            Icons.person_add,
-            color: AppColors.primary,
-          ),
-        )
+          child: Icon(Icons.person_add, color: AppColors.primary),
+        ),
       ],
     );
   }
@@ -153,10 +137,7 @@ class _NewReservationPageState extends State<NewReservationPage> {
       ),
       child: Row(
         children: [
-          const CircleAvatar(
-            radius: 24,
-            child: Icon(Icons.person),
-          ),
+          const CircleAvatar(radius: 24, child: Icon(Icons.person)),
           const SizedBox(width: 12),
           Expanded(
             child: Column(
@@ -191,9 +172,7 @@ class _NewReservationPageState extends State<NewReservationPage> {
             const Spacer(),
             Text(
               'Ver todos',
-              style: AppTextStyles.caption.copyWith(
-                color: AppColors.primary,
-              ),
+              style: AppTextStyles.caption.copyWith(color: AppColors.primary),
             ),
           ],
         ),
@@ -218,9 +197,7 @@ class _NewReservationPageState extends State<NewReservationPage> {
                   width: 160,
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
-                    color: isSelected
-                        ? AppColors.primary
-                        : Colors.white,
+                    color: isSelected ? AppColors.primary : Colors.white,
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(
                       color: AppColors.primary.withValues(alpha: 0.3),
@@ -243,9 +220,7 @@ class _NewReservationPageState extends State<NewReservationPage> {
                       Text(
                         '60 min',
                         style: AppTextStyles.caption.copyWith(
-                          color: isSelected
-                              ? Colors.white70
-                              : Colors.grey,
+                          color: isSelected ? Colors.white70 : Colors.grey,
                         ),
                       ),
                       const SizedBox(height: 8),
@@ -261,7 +236,7 @@ class _NewReservationPageState extends State<NewReservationPage> {
               );
             },
           ),
-        )
+        ),
       ],
     );
   }
@@ -295,11 +270,10 @@ class _NewReservationPageState extends State<NewReservationPage> {
               ),
             );
           }).toList(),
-        )
+        ),
       ],
     );
   }
-  
 
   // ─────────────────────────────────────────────────────────────
   // RESUMEN
@@ -319,15 +293,9 @@ class _NewReservationPageState extends State<NewReservationPage> {
           '$selectedClient · $selectedService',
           style: AppTextStyles.bodyBold,
         ),
-        Text(
-          'Mar 13, $selectedHour (60 min)',
-          style: AppTextStyles.caption,
-        ),
+        Text('Mar 13, $selectedHour (60 min)', style: AppTextStyles.caption),
         const SizedBox(height: 8),
-        Text(
-          '€35.00',
-          style: AppTextStyles.title,
-        ),
+        Text('€35.00', style: AppTextStyles.title),
       ],
     );
   }
@@ -360,4 +328,3 @@ class _NewReservationPageState extends State<NewReservationPage> {
     );
   }
 }
-
