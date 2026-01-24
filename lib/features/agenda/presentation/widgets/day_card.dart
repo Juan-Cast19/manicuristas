@@ -13,6 +13,7 @@ class DayCard extends StatelessWidget {
   final bool isSelected;
 
   const DayCard({
+    super.key, 
     required this.day,
     required this.date,
     required this.isSelected,

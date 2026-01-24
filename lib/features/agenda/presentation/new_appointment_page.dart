@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:manicuristas/core/theme/app_colors.dart';
 import 'package:manicuristas/core/theme/app_text_styles.dart';
+import 'package:manicuristas/features/agenda/presentation/widgets/day_selector.dart';
 
 class NewReservationPage extends StatefulWidget {
   const NewReservationPage({super.key});
@@ -75,6 +76,7 @@ class _NewReservationPageState extends State<NewReservationPage> {
             'Ayuda',
             style: AppTextStyles.bodyBold.copyWith(color: AppColors.primary),
           ),
+          
         ),
       ],
     );
@@ -247,9 +249,11 @@ class _NewReservationPageState extends State<NewReservationPage> {
   Widget _dateTimeSection() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+      children: [ 
         Text('Fecha y Hora', style: AppTextStyles.sectionTitle),
         const SizedBox(height: 12),
+        const DaySelector(),
+        const SizedBox(height: 16),
         Row(
           children: hours.map((hour) {
             final isSelected = selectedHour == hour;
@@ -263,6 +267,7 @@ class _NewReservationPageState extends State<NewReservationPage> {
                     selectedHour = hour;
                   });
                 },
+                
                 selectedColor: AppColors.primary,
                 labelStyle: TextStyle(
                   color: isSelected ? Colors.white : Colors.black,
@@ -308,7 +313,18 @@ class _NewReservationPageState extends State<NewReservationPage> {
       width: double.infinity,
       height: 56,
       child: ElevatedButton(
-        onPressed: canConfirm ? () {} : null,
+        onPressed: () {
+          if (!canConfirm) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Completa cliente, servicio y hora'),
+              ),
+            );
+            return;
+          }
+
+          // Acción futura (por ahora no hace nada)
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.primary,
           disabledBackgroundColor: Colors.grey.shade300,
@@ -327,4 +343,5 @@ class _NewReservationPageState extends State<NewReservationPage> {
       ),
     );
   }
+
 }

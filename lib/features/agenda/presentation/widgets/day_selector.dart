@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:manicuristas/core/theme/app_colors.dart';
 import 'package:manicuristas/core/theme/app_text_styles.dart';
 
+
 class DaySelector extends StatefulWidget {
   const DaySelector({super.key});
 
@@ -19,6 +20,7 @@ class _DaySelectorState extends State<DaySelector> {
     {'day': 'J', 'date': '15'},
     {'day': 'V', 'date': '16'},
     {'day': 'S', 'date': '17'},
+    {'day': 'D', 'date': '18'},
   ];
 
   @override
