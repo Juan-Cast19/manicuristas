@@ -15,7 +15,13 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w400,
     color: AppColors.textPrimary,
   );
-  
+  static const TextStyle body = TextStyle(
+  fontFamily: 'Montserrat',
+  fontSize: 14,
+  fontWeight: FontWeight.w500,
+  color: Colors.black87,
+);
+
   static const TextStyle bodyBold = TextStyle(
     fontFamily: 'Montserrat',
     fontSize: 16,
