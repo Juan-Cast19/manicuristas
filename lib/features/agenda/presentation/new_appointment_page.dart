@@ -3,6 +3,7 @@ import 'package:manicuristas/core/theme/app_colors.dart';
 import 'package:manicuristas/core/theme/app_text_styles.dart';
 import 'package:manicuristas/features/agenda/presentation/widgets/day_selector.dart';
 
+
 class NewReservationPage extends StatefulWidget {
   const NewReservationPage({super.key});
 
@@ -18,6 +19,15 @@ class _NewReservationPageState extends State<NewReservationPage> {
   String? selectedService;
   DateTime selectedDate = DateTime.now();
   String? selectedHour;
+  // ─────────────────────────────────────────────────────────────
+  // ERRORES DE VALIDACIÓN
+  // ─────────────────────────────────────────────────────────────
+  bool clientError = false;
+  bool serviceError = false;
+  bool hourError = false;
+
+  String errorMessage = '';
+  
 
   final List<String> services = ['Gel Soft', 'Acrílicas', 'Pedicure'];
 
@@ -26,8 +36,22 @@ class _NewReservationPageState extends State<NewReservationPage> {
   // ─────────────────────────────────────────────────────────────
   // HELPERS
   // ─────────────────────────────────────────────────────────────
-  bool get canConfirm =>
-      selectedClient != null && selectedService != null && selectedHour != null;
+  bool get canConfirm {
+    clientError = selectedClient == null;
+    serviceError = selectedService == null;
+    hourError = selectedHour == null;
+
+    if (clientError) {  
+      errorMessage = 'Selecciona un cliente';
+    } else if (serviceError) {
+      errorMessage = 'Selecciona un servicio';
+    } else if (hourError) {
+      errorMessage = 'Elige una hora disponible';
+    }
+
+    return !clientError && !serviceError && !hourError;
+  }
+
 
   // ─────────────────────────────────────────────────────────────
   // UI
@@ -116,6 +140,9 @@ class _NewReservationPageState extends State<NewReservationPage> {
               prefixIcon: const Icon(Icons.search),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(24),
+                borderSide: BorderSide(
+                  color: clientError ? Colors.red : Colors.grey,
+                ),
               ),
             ),
           ),
@@ -202,8 +229,11 @@ class _NewReservationPageState extends State<NewReservationPage> {
                     color: isSelected ? AppColors.primary : Colors.white,
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(
-                      color: AppColors.primary.withValues(alpha: 0.3),
+                      color: serviceError && !isSelected
+                          ? Colors.red
+                          : AppColors.primary.withValues(alpha: 0.3),
                     ),
+
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -267,7 +297,11 @@ class _NewReservationPageState extends State<NewReservationPage> {
                     selectedHour = hour;
                   });
                 },
-                
+                shape: StadiumBorder(
+                ),
+                side: BorderSide(
+                  color: hourError && !isSelected ? Colors.red : Colors.transparent,
+                ),
                 selectedColor: AppColors.primary,
                 labelStyle: TextStyle(
                   color: isSelected ? Colors.white : Colors.black,
@@ -313,21 +347,19 @@ class _NewReservationPageState extends State<NewReservationPage> {
       width: double.infinity,
       height: 56,
       child: ElevatedButton(
-        onPressed: () {
-          if (!canConfirm) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Completa cliente, servicio y hora'),
-              ),
-            );
-            return;
-          }
+      onPressed: () {
+        setState(() {});
 
-          // Acción futura (por ahora no hace nada)
-        },
+        if (!canConfirm) {
+          _showErrorDialog(errorMessage);
+          return;
+        }
+
+        _showSuccessDialog();
+      },
+
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.primary,
-          disabledBackgroundColor: Colors.grey.shade300,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(28),
           ),
@@ -344,4 +376,111 @@ class _NewReservationPageState extends State<NewReservationPage> {
     );
   }
 
+    void _showSuccessDialog() {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(
+                  Icons.check_circle,
+                  color: Colors.green,
+                  size: 64,
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  '¡Reserva confirmada!',
+                  style: AppTextStyles.title,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'La cita fue creada correctamente.',
+                  style: AppTextStyles.caption,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 24),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(context); // cierra el dialog
+                      Navigator.pop(context); // vuelve atrás
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.primary,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24),
+                      ),
+                    ),
+                    child: const Text(
+                      'Aceptar',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+  void _showErrorDialog(String message) {
+    showDialog(
+      context: context,
+      builder: (_) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(
+                  Icons.error_outline,
+                  color: Colors.red,
+                  size: 64,
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  message,
+                  style: AppTextStyles.caption,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 24),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () => Navigator.pop(context),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.primary,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24),
+                      ),
+                    ),
+                    child: const Text(
+                      'Entendido',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+  
 }
