@@ -15,6 +15,24 @@ class AppointmentsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: AppColors.background,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          color: AppColors.textPrimary,
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+        title: Text(
+          'Reservas',
+          style: AppTextStyles.title,
+        ),
+      ),
+      
+      
       backgroundColor: AppColors.background,
       body: SafeArea(
         child: Padding(
@@ -22,13 +40,6 @@ class AppointmentsPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 16),
-
-              // 🔹 Header
-              Text(
-                'Reservas',
-                style: AppTextStyles.title,
-              ),
 
               const SizedBox(height: 16),
 
