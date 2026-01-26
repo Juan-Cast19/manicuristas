@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:manicuristas/features/home/presentation/home_page.dart';
 import 'package:manicuristas/features/agenda/presentation/agenda_page.dart';
 import 'package:manicuristas/features/more/presentation/more_page.dart';
-
+//Import Core
+import 'package:manicuristas/core/theme/app_colors.dart';
+import 'package:manicuristas/core/theme/app_text_styles.dart';
 
 class MainNavigationPage extends StatefulWidget {
   const MainNavigationPage({super.key});
@@ -30,6 +32,17 @@ class _MainNavigationPageState extends State<MainNavigationPage> {
         children: _pages,
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: AppColors.background2,
+          selectedItemColor: AppColors.primary,
+          unselectedItemColor: AppColors.textSecondary,
+          showUnselectedLabels: true,
+          selectedLabelStyle: AppTextStyles.bodySmall.copyWith(
+            fontWeight: FontWeight.w600,
+          ),
+          unselectedLabelStyle: AppTextStyles.bodySmall.copyWith(
+            color: AppColors.textSecondary,
+          ),
+
         currentIndex: _currentIndex,
         onTap: (index) => setState(() => _currentIndex = index),
         items: const [
