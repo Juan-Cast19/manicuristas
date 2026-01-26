@@ -2,7 +2,7 @@
 //Import Flutter
 import 'package:flutter/material.dart';
 //Import Navegacion
-
+import 'package:manicuristas/features/appointments/presentation/appointments_page.dart';
 //Import Core
 import 'package:manicuristas/core/theme/app_colors.dart';
 import 'package:manicuristas/core/theme/app_text_styles.dart';
@@ -39,7 +39,12 @@ class HomePage extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        // luego aquí navegamos a la pantalla completa
+                         Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const AppointmentsPage(),
+                          ),
+                        ); // luego aquí navegamos a la pantalla completa
                       },
                       child: Text(
                         'Ver todas',

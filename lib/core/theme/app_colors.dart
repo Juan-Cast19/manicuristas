@@ -9,5 +9,7 @@ class AppColors {
   static const Color error = Color(0xFFE53935);
   static const Color card = Color(0xFFFFFFFF);
   static const Color info = Color(0xFF8E9BFF);
+  static const Color border = Color(0xFFE0E0E0);
+
 
 }
