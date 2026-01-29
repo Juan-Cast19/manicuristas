@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:manicuristas/features/home/presentation/home_page.dart';
 import 'package:manicuristas/features/agenda/presentation/agenda_page.dart';
 import 'package:manicuristas/features/more/presentation/more_page.dart';
+import 'package:manicuristas/features/clients/presentation/clients_page.dart';
 //Import Core
 import 'package:manicuristas/core/theme/app_colors.dart';
 import 'package:manicuristas/core/theme/app_text_styles.dart';
@@ -20,7 +21,7 @@ class _MainNavigationPageState extends State<MainNavigationPage> {
   final List<Widget> _pages = const [
     HomePage(),
     AgendaPage(),
-    _PlaceholderPage(title: 'Clientes'),
+    ClientsPage(),
     MorePage(),
   ];
 
@@ -57,13 +58,3 @@ class _MainNavigationPageState extends State<MainNavigationPage> {
 }
 
 
-class _PlaceholderPage extends StatelessWidget {
-  final String title;
-
-  const _PlaceholderPage({required this.title});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(child: Text(title));
-  }
-}

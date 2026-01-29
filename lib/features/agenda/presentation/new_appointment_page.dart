@@ -1,11 +1,20 @@
+// IMPORT FLUTTER
 import 'package:flutter/material.dart';
+// IMPORT CORE
 import 'package:manicuristas/core/theme/app_colors.dart';
 import 'package:manicuristas/core/theme/app_text_styles.dart';
+//IMPORT FEATURES
 import 'package:manicuristas/features/agenda/presentation/widgets/day_selector.dart';
+import 'package:manicuristas/features/clients/domain/models/client_model.dart';
 
 
 class NewReservationPage extends StatefulWidget {
-  const NewReservationPage({super.key});
+  final Client? client;
+  const NewReservationPage({
+    super.key,
+    this.client,
+    });
+  
 
   @override
   State<NewReservationPage> createState() => _NewReservationPageState();
