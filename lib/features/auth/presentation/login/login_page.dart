@@ -1,4 +1,13 @@
+//Import Flutter
 import 'package:flutter/material.dart';
+//Import Navegacion
+import 'package:manicuristas/features/auth/presentation/register/register_page.dart';
+import 'package:manicuristas/features/auth/presentation/forgot_password/forgot_password_page.dart';
+import 'package:manicuristas/features/navigation/presentation/main_navigation_page.dart';
+//Import Core
+import 'package:manicuristas/core/theme/app_colors.dart';
+import 'package:manicuristas/core/widgets/primary_button.dart';
+
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -14,6 +23,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       backgroundColor: AppColors.background,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -106,8 +116,13 @@ class _LoginPageState extends State<LoginPage> {
                   const Text('Mantener sesión'),
                   const Spacer(),
                   TextButton(
-                    onPressed: () {
-                      // Navegar a recuperar contraseña
+                      onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const ForgotPasswordPage(),
+                        ),
+                      );
                     },
                     child: const Text(
                       '¿Olvidaste tu contraseña?',
@@ -123,20 +138,16 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 width: double.infinity,
                 height: 50,
-                child: ElevatedButton(
+                child: PrimaryButton(
+                  text: 'Iniciar sesión',
                   onPressed: () {
-                    // Lógica de login
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const MainNavigationPage(),
+                      ),
+                    );
                   },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.pink,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                  ),
-                  child: const Text(
-                    'Iniciar sesión',
-                    style: TextStyle(fontSize: 16, color: Colors.white),
-                  ),
                 ),
               ),
 
@@ -149,8 +160,13 @@ class _LoginPageState extends State<LoginPage> {
                   const Text('¿No tienes una cuenta?'),
                   TextButton(
                     onPressed: () {
-                      // Navegar a registro
-                    },
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const RegisterPage(),
+                          ),
+                        );
+                      },
                     child: const Text(
                       'Crear una cuenta',
                       style: TextStyle(color: Colors.pink),
