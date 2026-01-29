@@ -73,6 +73,27 @@ class ClientCard extends StatelessWidget {
                     color: AppColors.textSecondary,
                   ),
                 ),
+                if (client.isRecurrent)
+                Padding(
+                  padding: const EdgeInsets.only(top: 4),
+                  child: Row(
+                    children: [
+                      const Icon(
+                        Icons.star,
+                        size: 14,
+                        color: Colors.orange,
+                      ),
+                      const SizedBox(width: 4),
+                      Text(
+                        'Recurrente',
+                        style: AppTextStyles.caption.copyWith(
+                          color: Colors.orange,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
