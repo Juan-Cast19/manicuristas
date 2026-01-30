@@ -1,10 +1,8 @@
-
-
-//Import Flutter
+//IMPORT FLUTTER
 import 'package:flutter/material.dart';
-//Import Navegacion
-
-//Import Core
+//IMPORT NAVEGATION
+import 'package:manicuristas/features/services/presentation/services_page.dart';
+//IMPORT CORE
 import 'package:manicuristas/core/theme/app_colors.dart';
 import 'package:manicuristas/core/theme/app_text_styles.dart';
 import 'package:manicuristas/core/widgets/more_option_tile.dart';
@@ -42,8 +40,16 @@ class MorePage extends StatelessWidget {
                 icon: Icons.brush,
                 title: 'Servicios',
                 subtitle: 'Gestiona los servicios y precios',
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const ServicesPage(),
+                    ),
+                  );
+                },
               ),
+
               const SizedBox(height: 12),
 
               MoreOptionTile(
